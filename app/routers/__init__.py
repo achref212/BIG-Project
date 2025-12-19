@@ -1,0 +1,13 @@
+from .auth import router as auth_router
+from .users import router as users_router
+from .levels import router as levels_router
+from .subjects import router as subjects_router
+from .lessons import router as lessons_router
+from .quizzes import router as quizzes_router
+from .stories import router as stories_router
+from .audio import router as audio_router
+from .mock_exams import router as mock_exams_router
+from .multiplayer import router as multiplayer_router
+from .badges import router as badges_router
+from .subscriptions import router as subscriptions_router
+from .admin import router as admin_router
