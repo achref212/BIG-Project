@@ -1,6 +1,5 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
-from app.database import SessionLocal
 from app.models.multiplayer import MultiplayerRoom
 from app.schemas.multiplayer import MultiplayerRoomCreate, MultiplayerRoomOut
 from app.core.dependencies import get_db, get_current_user

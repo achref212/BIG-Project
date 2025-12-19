@@ -1,4 +1,7 @@
 from fastapi import FastAPI
+from app.database import Base, engine
+from app.models import *  # IMPORTANT : force l'import de tous les modèles
+
 from app.routers import (
     auth_router,
     users_router,
@@ -14,12 +17,16 @@ from app.routers import (
     admin_router,
 )
 
+# 🔥 CRÉATION DES TABLES (DEV / TEST)
+Base.metadata.create_all(bind=engine)
+
 app = FastAPI(
     title="EduApp API",
     version="1.0.0",
     description="Plateforme éducative – Langue Française"
 )
 
+# ───────── ROUTERS ─────────
 app.include_router(auth_router)
 app.include_router(users_router)
 app.include_router(levels_router)
@@ -32,6 +39,7 @@ app.include_router(multiplayer_router)
 app.include_router(badges_router)
 app.include_router(subscriptions_router)
 app.include_router(admin_router)
+
 
 @app.get("/")
 def root():

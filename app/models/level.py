@@ -2,12 +2,13 @@ from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship
 from app.database import Base
 
+
 class Level(Base):
     __tablename__ = "levels"
 
-    id = Column(Integer, primary_key=True)
+    id = Column(Integer, primary_key=True, index=True)
     name = Column(String(100), nullable=False)
-    code = Column(String(10), nullable=False, unique=True)
+    code = Column(String(20), nullable=False)
     order_index = Column(Integer, nullable=False)
 
     lessons = relationship("Lesson", back_populates="level")

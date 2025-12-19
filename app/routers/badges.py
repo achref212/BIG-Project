@@ -1,7 +1,6 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 
-from app.database import SessionLocal
 from app.models.badge import Badge
 from app.models.user import User
 from app.core.dependencies import get_db, admin_required

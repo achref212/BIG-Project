@@ -2,11 +2,12 @@ from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship
 from app.database import Base
 
+
 class Subject(Base):
     __tablename__ = "subjects"
 
-    id = Column(Integer, primary_key=True)
-    name = Column(String(100), unique=True, nullable=False)
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String(100), nullable=False)
 
     lessons = relationship("Lesson", back_populates="subject")
     quizzes = relationship("Quiz", back_populates="subject")

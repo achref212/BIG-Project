@@ -4,7 +4,6 @@ from sqlalchemy.orm import Session
 
 from app.database import SessionLocal
 from app.models.user import User
-from app.core.jwt_handler import decode_token
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/login")
 
